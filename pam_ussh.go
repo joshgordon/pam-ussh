@@ -70,7 +70,7 @@ func pamLog(format string, args ...interface{}) {
 func authenticate(w io.Writer, uid int, username, ca string, principals map[string]struct{}) AuthResult {
 	authSock := os.Getenv("SSH_AUTH_SOCK")
 	if authSock == "" {
-		fmt.Fprint(w, "No SSH_AUTH_SOCK")
+		pamLog("No SSH_AUTH_SOCK")
 		return AuthError
 	}
 
